@@ -31,10 +31,26 @@ This is a music extraction tool project. The repository follows modern developme
 
 ### Git Commit Messages
 
-- Use clear, descriptive commit messages
-- Start with a verb in present tense (e.g., "Add", "Fix", "Update")
-- Keep the first line under 72 characters
+- Follow Conventional Commits specification for semantic versioning
+- Use the format: `<type>(<scope>): <description>`
+- Common types:
+  - `feat`: A new feature (triggers minor version bump)
+  - `fix`: A bug fix (triggers patch version bump)
+  - `docs`: Documentation only changes
+  - `style`: Code style changes (formatting, missing semicolons, etc.)
+  - `refactor`: Code changes that neither fix bugs nor add features
+  - `perf`: Performance improvements
+  - `test`: Adding or updating tests
+  - `chore`: Changes to build process or auxiliary tools
+  - `ci`: Changes to CI configuration files and scripts
+- Breaking changes should include `BREAKING CHANGE:` in the footer or `!` after type/scope (triggers major version bump)
+- Keep the subject line under 72 characters
 - Include additional details in the commit body if needed
+- Examples:
+  - `feat(extractor): add support for MP3 file extraction`
+  - `fix(parser): handle edge case with empty metadata`
+  - `docs(readme): update installation instructions`
+  - `feat(api)!: change response format for extraction endpoint`
 
 ### Code Review & Pull Requests
 
