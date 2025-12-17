@@ -24,11 +24,31 @@ This creates an executable JAR at `target/music-extractor.jar`.
 
 ## Usage
 
+You can run the application either using the provided shell script or directly with Java:
+
+### Using the Shell Script (Recommended)
+
+```bash
+./music-extractor.sh [command] [options]
+```
+
+The script automatically builds the project if needed and ensures Java 21 is being used.
+
+### Using Java Directly
+
+```bash
+java -jar target/music-extractor.jar [command] [options]
+```
+
 ### Extract Favorites
 
 The `extract` command scans your music library and identifies favorite songs and their albums:
 
 ```bash
+# Using shell script
+./music-extractor.sh extract <library-path> --favorites <favorites-file> [--output <output-file>]
+
+# Using java directly
 java -jar target/music-extractor.jar extract <library-path> --favorites <favorites-file> [--output <output-file>]
 ```
 
@@ -39,10 +59,16 @@ java -jar target/music-extractor.jar extract <library-path> --favorites <favorit
 
 **Example:**
 ```bash
-# Output to file
+# Using shell script - output to file
+./music-extractor.sh extract /music/library --favorites favorites.txt --output preserve.txt
+
+# Using shell script - output to stdout
+./music-extractor.sh extract /music/library --favorites favorites.txt
+
+# Using java directly - output to file
 java -jar target/music-extractor.jar extract /music/library --favorites favorites.txt --output preserve.txt
 
-# Output to stdout
+# Using java directly - output to stdout
 java -jar target/music-extractor.jar extract /music/library --favorites favorites.txt
 ```
 
@@ -51,6 +77,10 @@ java -jar target/music-extractor.jar extract /music/library --favorites favorite
 The `delete` command removes files not in the preserve list:
 
 ```bash
+# Using shell script
+./music-extractor.sh delete <library-path> --preserve <preserve-file> [--dry-run] [--verbose]
+
+# Using java directly
 java -jar target/music-extractor.jar delete <library-path> --preserve <preserve-file> [--dry-run] [--verbose]
 ```
 
@@ -62,10 +92,16 @@ java -jar target/music-extractor.jar delete <library-path> --preserve <preserve-
 
 **Example:**
 ```bash
-# Dry run first (recommended)
+# Using shell script - dry run first (recommended)
+./music-extractor.sh delete /music/library --preserve preserve.txt --dry-run --verbose
+
+# Using shell script - actual deletion
+./music-extractor.sh delete /music/library --preserve preserve.txt --verbose
+
+# Using java directly - dry run first (recommended)
 java -jar target/music-extractor.jar delete /music/library --preserve preserve.txt --dry-run --verbose
 
-# Actual deletion
+# Using java directly - actual deletion
 java -jar target/music-extractor.jar delete /music/library --preserve preserve.txt --verbose
 ```
 
@@ -79,6 +115,10 @@ java -jar target/music-extractor.jar delete /music/library --preserve preserve.t
 
 2. **Extract favorites and their albums**:
 ```bash
+# Using shell script
+./music-extractor.sh extract /music/library --favorites favorites.txt --output preserve.txt
+
+# Or using java directly
 java -jar target/music-extractor.jar extract /music/library --favorites favorites.txt --output preserve.txt
 ```
 
@@ -89,11 +129,19 @@ cat preserve.txt
 
 4. **Test deletion with dry-run**:
 ```bash
+# Using shell script
+./music-extractor.sh delete /music/library --preserve preserve.txt --dry-run --verbose
+
+# Or using java directly
 java -jar target/music-extractor.jar delete /music/library --preserve preserve.txt --dry-run --verbose
 ```
 
 5. **Perform actual deletion**:
 ```bash
+# Using shell script
+./music-extractor.sh delete /music/library --preserve preserve.txt --verbose
+
+# Or using java directly
 java -jar target/music-extractor.jar delete /music/library --preserve preserve.txt --verbose
 ```
 
