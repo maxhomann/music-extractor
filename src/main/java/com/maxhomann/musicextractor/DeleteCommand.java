@@ -161,7 +161,7 @@ public class DeleteCommand implements Callable<Integer> {
 
     private boolean isEmptyDirectory(Path directory) throws IOException {
         try (Stream<Path> entries = Files.list(directory)) {
-            return !entries.findAny().isPresent();
+            return entries.findAny().isEmpty();
         }
     }
 }
