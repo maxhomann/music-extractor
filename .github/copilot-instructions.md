@@ -34,15 +34,15 @@ This is a music extraction tool project. The repository follows modern developme
 - Follow Conventional Commits specification for semantic versioning
 - Use the format: `<type>(<scope>): <description>`
 - Common types:
-  - `feat`: A new feature (triggers minor version bump)
-  - `fix`: A bug fix (triggers patch version bump)
-  - `docs`: Documentation only changes
-  - `style`: Code style changes (formatting, missing semicolons, etc.)
-  - `refactor`: Code changes that neither fix bugs nor add features
-  - `perf`: Performance improvements
-  - `test`: Adding or updating tests
-  - `chore`: Changes to build process or auxiliary tools
-  - `ci`: Changes to CI configuration files and scripts
+  - `feat`: A new feature (triggers minor version bump in SemVer)
+  - `fix`: A bug fix (triggers patch version bump in SemVer)
+  - `docs`: Documentation only changes (no version bump)
+  - `style`: Code style changes (formatting, missing semicolons, etc.) (no version bump)
+  - `refactor`: Code changes that neither fix bugs nor add features (no version bump)
+  - `perf`: Performance improvements (no version bump)
+  - `test`: Adding or updating tests (no version bump)
+  - `chore`: Changes to build process or auxiliary tools (no version bump)
+  - `ci`: Changes to CI configuration files and scripts (no version bump)
 - Breaking changes should include `BREAKING CHANGE:` in the footer or `!` after type/scope (triggers major version bump)
 - Keep the subject line under 72 characters
 - Include additional details in the commit body if needed
